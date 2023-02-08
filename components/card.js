@@ -1,7 +1,7 @@
 import { StyleSheet, Text, View, TouchableWithoutFeedback } from "react-native";
 import React from "react";
 
-const card = (item, index) => {
+const card = ({ item }) => {
   return (
     <TouchableWithoutFeedback>
       <View style={styles.mainCardView}>
@@ -15,7 +15,27 @@ const card = (item, index) => {
                 textTransform: "capitalize",
               }}
             >
-              {"itechinsiders"}
+              {item.id}
+            </Text>
+            <Text
+              style={{
+                fontSize: 14,
+                color: "black",
+                fontWeight: "bold",
+                textTransform: "capitalize",
+              }}
+            >
+              {item.firstName}
+            </Text>
+            <Text
+              style={{
+                fontSize: 14,
+                color: "black",
+                fontWeight: "bold",
+                textTransform: "capitalize",
+              }}
+            >
+              {item.maidenName}
             </Text>
             <View
               style={{
@@ -30,7 +50,7 @@ const card = (item, index) => {
                   fontSize: 12,
                 }}
               >
-                {"itechinsiders"}
+                {item.age + " ans"}
               </Text>
             </View>
           </View>

@@ -1,26 +1,31 @@
 import { StatusBar } from "expo-status-bar";
-import { useEffect } from "react";
-import { StyleSheet, Text, View } from "react-native";
+import { useEffect, useState } from "react";
+import { StyleSheet, Text, View, FlatList } from "react-native";
 import Card from "./components/card";
 
 export default function App() {
+  const [listItems, setListItems] = useState([]);
   const API = "https://dummyjson.com/users?limit=20";
   useEffect(() => {
     fetch(API)
       .then((response) => response.json())
       .then((responseJson) => {
-        console.log(
-          "console :" + JSON.stringify(responseJson.users[0].maidenName),
-        );
+        setListItems(responseJson);
       })
       .catch((error) => {
         console.error(error);
       });
   }, []);
+  console.log(listItems);
   return (
     <View style={styles.container}>
       <Text style={styles.texte}>FILTER</Text>
-      <Card />
+      <FlatList
+        data={listItems.users}
+        //Item Separator View
+        renderItem={Card}
+        keyExtractor={(item, index) => index.toString()}
+      />
       <StatusBar style="auto" />
     </View>
   );
