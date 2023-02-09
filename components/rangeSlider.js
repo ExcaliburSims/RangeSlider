@@ -28,6 +28,12 @@ const rangeSlider = () => {
   const [multiSliderValue, setMultiSliderValue] = useState([0, 100]);
 
   const multiSliderValuesChange = (values) => setMultiSliderValue(values);
+  const oneValuesChange = () => {
+    console.log(multiSliderValue[0]);
+  };
+  const twoValuesChange = () => {
+    console.log(multiSliderValue[1]);
+  };
 
   return (
     <ViewContainer>
@@ -87,6 +93,8 @@ const rangeSlider = () => {
           max={100}
           allowOverlap={false}
           minMarkerOverlapDistance={10}
+          onToggleOne={oneValuesChange()}
+          onToggleTwo={twoValuesChange()}
         />
       </SliderWrapper>
     </ViewContainer>
