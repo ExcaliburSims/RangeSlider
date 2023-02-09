@@ -1,6 +1,7 @@
 import { StatusBar } from "expo-status-bar";
 import { useEffect, useState } from "react";
 import { StyleSheet, Text, View, FlatList } from "react-native";
+import RangeSlider from "./components/rangeSlider";
 import Card from "./components/card";
 
 export default function App() {
@@ -16,10 +17,11 @@ export default function App() {
         console.error(error);
       });
   }, []);
-  console.log(listItems);
+  /* console.log(listItems); */
   return (
     <View style={styles.container}>
       <Text style={styles.texte}>FILTER</Text>
+      <RangeSlider />
       <FlatList
         data={listItems.users}
         //Item Separator View
