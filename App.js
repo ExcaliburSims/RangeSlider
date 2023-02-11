@@ -6,6 +6,7 @@ import Card from "./components/card";
 
 export default function App() {
   const [listItems, setListItems] = useState([]);
+  const [filtered, setFiltered] = useState(listItems);
   const API = "https://dummyjson.com/users?limit=20";
   useEffect(() => {
     fetch(API)
@@ -16,8 +17,9 @@ export default function App() {
       .catch((error) => {
         console.error(error);
       });
+    /* setFiltered(listItems); */
   }, []);
-  /* console.log(listItems); */
+  /* console.log(filtered); */
   return (
     <View style={styles.container}>
       <Text style={styles.texte}>FILTER</Text>
